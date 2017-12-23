@@ -45,6 +45,12 @@ html,body{
 </style>
 </head>
 <body>
+<div>
+ mode:<select name="mode" id="mode">
+	<option value="1">text</option>
+	<option value="2">html</option>
+ </select>
+</div>
     <div class="iconset">
 		<span class="btn" data-clipboard-target=".btn>i">
 <i class="material-icons">3d_rotation</i>
@@ -2849,7 +2855,11 @@ html,body{
 window.onload=function(){
 	var clipboard = new Clipboard('span',{
 		text: function(trigger) {
-		console.log(trigger);
+		 var model = document.getElementById('mode').value;
+		 if(model==='1'){
+		 	 
+		 	return trigger.text;
+		 }
         return trigger.innerHTML;
     }
 	});
